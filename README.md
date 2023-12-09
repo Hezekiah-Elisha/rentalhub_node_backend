@@ -31,3 +31,30 @@ npx sequelize-cli init
 npx sequelize-cli db:migrate
 ```
 Refer to the following link for more information on [Sequelize Migrations](https://sequelize.org/master/manual/migrations.html). and [Sequelize CLI](https://sequelize.org/master/manual/migrations.html). and [Medium Tutorial](https://medium.com/@jazimabbas/navigating-database-migrations-with-confidence-a-step-by-step-guide-using-sequelize-85bbdb7fc97a)
+
+# Usage
+To run the application locally, run the following command:
+```bash
+npm run start
+```
+To run the application in development mode, run the following command:
+```bash
+npm run dev
+```
+
+## License
+This project is licensed under the MIT license.
+
+## Contributions
+This project was created by:
+@Hezekiah-Elisha
+
+## Tests
+To run tests, run the following command:
+```bash
+npm run test
+```
+For now there are no tests.
+
+## Questions
+If you have any questions about the repo, open an issue or contact me directly at [X](twitter.com/Hezekiah-Elisha). You can find more of my work at [Hezekiah-Elisha](https://github.com/Hezekiah-Elisha/)
