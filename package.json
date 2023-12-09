@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mariadb": "^3.2.2",
+    "mysql2": "^3.6.5",
+    "sequelize": "^6.35.1"
+  },
+  "name": "rental_hub",
+  "description": "This is a web application that allows users to rent out their items to other users. Users can also rent items from other users. This application is built using the Express framework and uses a MariaDB database. The application is deployed on Heroku and can be accessed [here](https://rental-hub.herokuapp.com/).",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "rental",
+    "property",
+    "management"
+  ],
+  "author": "Hezekiah Elisha",
+  "license": "ISC",
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
+}
