@@ -10,7 +10,7 @@
   },
   "name": "rental_hub",
   "description": "This is a web application that allows users to rent out their items to other users. Users can also rent items from other users. This application is built using the Express framework and uses a MariaDB database. The application is deployed on Heroku and can be accessed [here](https://rental-hub.herokuapp.com/).",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "main": "index.js",
   "type": "module",
   "scripts": {
