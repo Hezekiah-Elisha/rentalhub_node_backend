@@ -43,7 +43,7 @@ npm run dev
 ```
 
 ## License
-This project is licensed under the MIT license.
+This project is licensed under the Apache 2.0 license.
 
 ## Contributions
 This project was created by:
