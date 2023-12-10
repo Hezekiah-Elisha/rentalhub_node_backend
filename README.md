@@ -57,4 +57,4 @@ npm run test
 For now there are no tests.
 
 ## Questions
-If you have any questions about the repo, open an issue or contact me directly at [X](twitter.com/Hezekiah-Elisha). You can find more of my work at [Hezekiah-Elisha](https://github.com/Hezekiah-Elisha/)
+If you have any questions about the repo, open an issue or contact me directly at [X](https://twitter.com/_hezekiahelisha). You can find more of my work at [Hezekiah-Elisha](https://github.com/Hezekiah-Elisha/)
