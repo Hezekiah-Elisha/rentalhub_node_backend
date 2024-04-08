@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "hezekiah",
-    "password": "qwerty",
+    "username": "root",
+    "password": null,
     "database": "rental_hub",
     "host": "127.0.0.1",
     "dialect": "mysql"

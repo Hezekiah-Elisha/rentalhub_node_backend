@@ -3,10 +3,12 @@
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.2",
     "mariadb": "^3.2.2",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.5",
-    "sequelize": "^6.35.1"
+    "sequelize": "^6.37.2"
   },
   "name": "rental_hub",
   "description": "This is a web application that allows users to rent out their items to other users. Users can also rent items from other users. This application is built using the Express framework and uses a MariaDB database. The application is deployed on Heroku and can be accessed [here](https://rental-hub.herokuapp.com/).",

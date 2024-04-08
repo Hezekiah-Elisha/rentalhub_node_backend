@@ -1,9 +1,6 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
+import { sequelize } from "../Constants.js";
 
-const sequelize = new Sequelize('rental_hub', 'hezekiah', 'qwerty', {
-  host: '127.0.0.1',
-  dialect: 'mysql'
-});
 
 // table users
 const User = sequelize.define('users', {
@@ -27,19 +24,23 @@ const User = sequelize.define('users', {
     },
     phone: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'N/A'
     },
     address: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'N/A'
     },
     role: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'user'
     },
     status: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'active'
     }
     }, {
     // options

@@ -1,20 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-// import { Sequelize } from 'sequelize';
 import { sequelize } from "./Constants.js";
 
 
 // import routes
-import User from './routes/user/User.js';
-import Property from './routes/property/Property.js';
-import Auth from './routes/auth/Auth.js';
+import User from './routes/user.route.js';
+import Property from './routes/property.route.js';
+import Auth from './routes/auth.route.js';
+import Upload from './routes/uploads.route.js';
 
 const app = express();
-// const sequelize = new Sequelize('rental_hub', 'hezekiah', 'qwerty', {
-//   host: '127.0.0.1',
-//   dialect: 'mysql'
-// });
 const port = 3000;
 
 app.use(bodyParser.json());
@@ -23,15 +19,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // routes
-app.use('/user', User);
-app.use('/property', Property);
+app.use('/users', User);
+app.use('/properties', Property);
 app.use('/auth', Auth);
+app.use('/uploads', Upload);
 
 app.get('/', (req, res) => {
   const connected = checkConnection();
 
   res.status(200).json({
-    message: 'Hello World'
+    message: 'Welcome to the Rental Hub API'
   });
 });
 
@@ -40,6 +37,17 @@ app.listen(port, (err) => {
     console.log(err);
   }
   console.log(`Server Running => Port: ${port}`);
+});
+
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || 'Internal Server Error';
+
+  res.status(statusCode).json({
+      success: false,
+      statusCode,
+      message
+  });
 });
 
 // checking connection

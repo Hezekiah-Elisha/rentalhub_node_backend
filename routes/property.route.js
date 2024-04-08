@@ -1,59 +1,18 @@
 import express from 'express';
-import Property from './property.model.js';
+import Property from '../models/property.model.js';
 import { Op } from 'sequelize';
+import { createProperty, deleteAllProperties, getAllProperties, getPropertyById, uploadImage } from '../controllers/property.controller.js';
 
 const router = express.Router();
 await Property.sequelize.sync();
 
-router.get('/', (req, res) => {
-    Property.findAll().then(properties => {
-        res.status(200).json({
-            message: 'Get all properties successfully',
-            properties: properties
-        });
-    }).catch(error => {
-        res.status(500).json({
-            message: 'Something went wrong',
-            error: error
-        });
-    });
-});
+router.get('/', getAllProperties);
 
-router.post('/', (req, res) => {
-    const property = Property.create({
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        location: req.body.location,
-        type: req.body.type,
-        status: req.body.status,
-        image: req.body.image
-    }).then(property => {
-        res.status(201).json({
-            message: 'Property created successfully',
-            property: property
-        });
-    }).catch(error => {
-        res.status(500).json({
-            message: 'Something went wrong',
-            error: error
-        });
-    });
-});
+router.post('/', createProperty);
 
-router.get('/:id', (req, res) => {
-    Property.findByPk(req.params.id).then(property => {
-        res.status(200).json({
-            message: 'Get property successfully',
-            property: property
-        });
-    }).catch(error => {
-        res.status(500).json({
-            message: 'Something went wrong',
-            error: error
-        });
-    });
-});
+router.get('/:id', getPropertyById);
+
+router.delete('/', deleteAllProperties);
 
 /**
  * Update a property
@@ -70,31 +29,7 @@ router.get('/:id', (req, res) => {
  * @returns {object} 200 - Property updated successfully
  * @returns {Error}  default - Something went wrong
  */
-router.put('/:id', (req, res) => {
-    Property.update({
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        location: req.body.location,
-        type: req.body.type,
-        status: req.body.status,
-        image: req.body.image
-    }, {
-        where: {
-            id: req.params.id
-        }
-    }).then(property => {
-        res.status(200).json({
-            message: 'Property updated successfully',
-            property: property
-        });
-    }).catch(error => {
-        res.status(500).json({
-            message: 'Something went wrong',
-            error: error
-        });
-    });
-});
+router.put('/:id', getPropertyById); 
 
 /**
  * Delete a property
@@ -162,5 +97,28 @@ router.get('/search/type/:type', (req, res) => {
         });
     });
 });
+
+router.get('/search/location/:location', (req, res) => {
+    Property.findAll({
+        where: {
+            location: {
+                [Op.like]: '%' + req.params.location + '%'
+            }
+        }
+    }).then(properties => {
+        res.status(200).json({
+            message: 'Search Successful',
+            properties: properties
+        });
+    }).catch(error => {
+        res.status(500).json({
+            message: 'Something went wrong',
+            error: error
+        });
+    });
+});
+
+
+router.post('/uploadImage', uploadImage);
 
 export default router;
